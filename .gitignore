@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 
 # Heavy media assets (>100MB exceeds GitHub limits)
-# Keep lightweight hero showreel preview (11MB) so landing page video works out of the box
+local_videos_backup/
 public/videos/*
 !public/videos/eps-land.mp4
 

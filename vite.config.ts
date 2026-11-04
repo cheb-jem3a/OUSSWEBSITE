@@ -66,7 +66,4 @@ export default defineConfig({
       'Accept-Ranges': 'bytes',
     },
   },
-  build: {
-    copyPublicDir: false,
-  },
 })
