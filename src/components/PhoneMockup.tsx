@@ -11,7 +11,7 @@ interface PhoneMockupProps {
 }
 
 export const PhoneMockup: React.FC<PhoneMockupProps> = ({
-  videoUrl = '/videos/eps-land.mp4',
+  videoUrl = 'https://archive.org/download/oussama-brahami-portfolio-reels/eps-land.mp4',
   poster = '/thumbnails/eps-land.webp',
   title = 'Commercial Showreel',
   targetId = 'reel-24-eps-land'
