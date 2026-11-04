@@ -21,11 +21,7 @@ export const About: React.FC = () => {
               <img
                 src="/about.jpg"
                 alt="Oussama Brahami"
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src =
-                    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80';
-                }}
-                className="w-full h-auto object-contain rounded-2xl block transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+                className="w-full h-auto object-cover rounded-2xl block transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 loading="lazy"
               />
             </div>
