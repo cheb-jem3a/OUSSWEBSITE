@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import type { Project } from '../types';
 import { getStoredThumbnail, subscribeThumbnails } from '../utils/browserThumbnails';
 import { unlockAudio } from '../utils/audioUnlock';
+import { prefetchVideo } from '../utils/videoPrefetch';
 
 interface VideoCardProps {
   project: Project;
@@ -52,6 +53,8 @@ export const VideoCard: React.FC<VideoCardProps> = ({
     <Link
       to={`/watch/${project.id}`}
       onClick={unlockAudio}
+      onMouseEnter={() => prefetchVideo(project.videoUrl)}
+      onTouchStart={() => prefetchVideo(project.videoUrl)}
       data-carousel-card
       className={`group relative shrink-0 snap-start aspect-[9/16] w-[215px] sm:w-[250px] md:w-[280px] lg:w-[295px] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0d0d10] border border-white/[0.08] hover:border-orange-500/40 hover:shadow-[0_0_25px_rgba(249,115,22,0.22)] transition-all duration-300 flex flex-col justify-between cursor-pointer select-none active:scale-[0.98] carousel-card-contain ${className}`}
     >

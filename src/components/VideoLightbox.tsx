@@ -181,17 +181,21 @@ export const VideoLightbox: React.FC<VideoLightboxProps> = ({
                 } object-contain rounded-xl shadow-2xl bg-black`}
                 onLoadedMetadata={() => console.log('Stream ready:', project.videoUrl)}
                 onError={(e) => {
-                  const mediaErr = e.currentTarget.error;
+                  const currentTarget = e.currentTarget;
+                  const currentSrc = currentTarget.currentSrc || currentTarget.src;
+                  if (currentSrc.includes('ia600804.us.archive.org')) {
+                    currentTarget.src = currentSrc.replace('https://ia600804.us.archive.org/22/items/', 'https://archive.org/download/');
+                    currentTarget.load();
+                    currentTarget.play().catch(() => {});
+                    return;
+                  }
+                  const mediaErr = currentTarget.error;
                   console.error('Video Error Object:', mediaErr);
-                  // ONLY show error if an actual critical media decode error occurs
                   if (mediaErr && mediaErr.code === MediaError.MEDIA_ERR_DECODE) {
                     setCriticalError('Critical media decode error. Please try another video or browser.');
                   }
                 }}
-              >
-                <source src={encodeURI(project.videoUrl).replace(/#/g, '%23')} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              />
             </div>
           )}
         </div>

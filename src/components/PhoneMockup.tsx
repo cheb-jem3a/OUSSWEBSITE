@@ -11,7 +11,7 @@ interface PhoneMockupProps {
 }
 
 export const PhoneMockup: React.FC<PhoneMockupProps> = ({
-  videoUrl = 'https://archive.org/download/oussama-brahami-portfolio-reels/eps-land.mp4',
+  videoUrl = 'https://ia600804.us.archive.org/22/items/oussama-brahami-portfolio-reels/eps-land.mp4',
   poster = '/thumbnails/eps-land.webp',
   title = 'Commercial Showreel',
   targetId = 'reel-24-eps-land'
@@ -106,16 +106,14 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
               loop
               muted
               playsInline
-              preload="auto"
+              preload="metadata"
               aria-label={title}
               onCanPlay={(e) => {
                 e.currentTarget.muted = true;
                 e.currentTarget.play().catch(() => {});
               }}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            >
-              <source src={encodeURI(videoUrl)} type="video/mp4" />
-            </video>
+            />
 
             {/* Subtle cinematic gradient vignette */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/30 pointer-events-none" />

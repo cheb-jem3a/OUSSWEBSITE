@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { PROJECTS_DATA } from '../data/projects';
 import type { Project } from '../types';
+import { prefetchVideo } from '../utils/videoPrefetch';
 
 export const WatchPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -37,12 +38,21 @@ export const WatchPage: React.FC = () => {
   const [prevId, setPrevId] = useState(project.id);
   const [copied, setCopied] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [isBuffering, setIsBuffering] = useState(true);
 
   // Synchronize state during render when project changes
   if (project.id !== prevId) {
     setPrevId(project.id);
     setCriticalError(null);
+    setIsBuffering(true);
   }
+
+  // Pre-fetch next video stream in background for instantaneous next-reel transitions
+  useEffect(() => {
+    if (nextProject?.videoUrl) {
+      prefetchVideo(nextProject.videoUrl);
+    }
+  }, [nextProject?.videoUrl]);
 
   // Scroll to top on project route change
   useEffect(() => {
@@ -226,7 +236,17 @@ export const WatchPage: React.FC = () => {
               </button>
             </div>
           ) : (
-            <div className="w-full h-full flex items-center justify-center p-4">
+            <div className="w-full h-full flex items-center justify-center p-4 relative">
+              {/* Sleek Buffering & Loading Indicator */}
+              {isBuffering && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[2px] pointer-events-none z-10 transition-opacity duration-300">
+                  <div className="w-12 h-12 rounded-full border-2 border-orange-500/20 border-t-orange-500 animate-spin mb-3 shadow-[0_0_20px_rgba(249,115,22,0.4)]" />
+                  <span className="text-xs font-mono tracking-wider text-zinc-300 uppercase bg-black/75 px-3 py-1 rounded-full border border-white/10 shadow-lg">
+                    Loading Reel...
+                  </span>
+                </div>
+              )}
+
               <video
                 key={project.id || project.videoUrl}
                 ref={videoRef}
@@ -241,6 +261,13 @@ export const WatchPage: React.FC = () => {
                 muted={false}
                 onClick={ensureAudioPlaying}
                 onPlay={ensureAudioPlaying}
+                onWaiting={() => setIsBuffering(true)}
+                onLoadStart={() => setIsBuffering(true)}
+                onPlaying={() => setIsBuffering(false)}
+                onCanPlay={() => setIsBuffering(false)}
+                onTimeUpdate={() => {
+                  if (isBuffering) setIsBuffering(false);
+                }}
                 onVolumeChange={(e) => {
                   setIsMuted(e.currentTarget.muted);
                 }}
@@ -249,17 +276,24 @@ export const WatchPage: React.FC = () => {
                 } object-contain rounded-xl shadow-2xl bg-black cursor-pointer`}
                 onLoadedMetadata={() => console.log('Stream ready with sound:', project.videoUrl)}
                 onError={(e) => {
-                  const mediaErr = e.currentTarget.error;
+                  const currentTarget = e.currentTarget;
+                  const currentSrc = currentTarget.currentSrc || currentTarget.src;
+                  // If direct cluster fails, seamlessly fallback to canonical Archive.org redirector
+                  if (currentSrc.includes('ia600804.us.archive.org')) {
+                    console.warn('Direct cluster failed, falling back to Archive redirector:', currentSrc);
+                    currentTarget.src = currentSrc.replace('https://ia600804.us.archive.org/22/items/', 'https://archive.org/download/');
+                    currentTarget.load();
+                    currentTarget.play().catch(() => {});
+                    return;
+                  }
+                  const mediaErr = currentTarget.error;
                   console.error('Video Error Object:', mediaErr);
                   // ONLY show error if an actual critical media decode error occurs
                   if (mediaErr && mediaErr.code === MediaError.MEDIA_ERR_DECODE) {
                     setCriticalError('Critical media decode error. Please try another video or browser.');
                   }
                 }}
-              >
-                <source src={encodeURI(project.videoUrl).replace(/#/g, '%23')} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              />
             </div>
           )}
         </div>
