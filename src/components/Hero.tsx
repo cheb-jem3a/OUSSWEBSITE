@@ -107,7 +107,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork }) => {
           <div className="lg:col-span-5 flex justify-center relative mt-4 lg:mt-0">
             {/* Interactive Phone Mockup with smooth moving video preview */}
             <PhoneMockup
-              videoUrl="https://ia601804.us.archive.org/34/items/oussama-brahami-fast-reels/eps-land.mp4"
+              videoUrl="https://ia601804.us.archive.org/34/items/oussama-brahami-fast-reels/reel-24.mp4"
               poster="/thumbnails/eps-land.webp"
               title="Eps Land // Commercial Showreel"
               targetId="reel-24-eps-land"
