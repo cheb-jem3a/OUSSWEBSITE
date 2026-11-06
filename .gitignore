@@ -25,6 +25,7 @@ dist-ssr
 
 # Heavy media assets (>100MB exceeds GitHub limits)
 local_videos_backup/
+compressed_videos/
 public/videos/*
 !public/videos/eps-land.mp4
 

@@ -279,9 +279,9 @@ export const WatchPage: React.FC = () => {
                   const currentTarget = e.currentTarget;
                   const currentSrc = currentTarget.currentSrc || currentTarget.src;
                   // If direct cluster fails, seamlessly fallback to canonical Archive.org redirector
-                  if (currentSrc.includes('ia600804.us.archive.org')) {
+                  if (currentSrc.includes('.us.archive.org/')) {
                     console.warn('Direct cluster failed, falling back to Archive redirector:', currentSrc);
-                    currentTarget.src = currentSrc.replace('https://ia600804.us.archive.org/22/items/', 'https://archive.org/download/');
+                    currentTarget.src = currentSrc.replace(/https:\/\/[^/]+\/\d+\/items\//, 'https://archive.org/download/');
                     currentTarget.load();
                     currentTarget.play().catch(() => {});
                     return;
