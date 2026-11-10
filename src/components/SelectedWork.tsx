@@ -3,7 +3,6 @@ import { Film, Sparkles, Play, Award, ChevronLeft, ChevronRight } from 'lucide-r
 import { Link } from 'react-router-dom';
 import { VideoCard } from './VideoCard';
 import { PROJECTS_DATA } from '../data/projects';
-import { getStoredThumbnail, subscribeThumbnails } from '../utils/browserThumbnails';
 import { unlockAudio } from '../utils/audioUnlock';
 
 export const SelectedWork: React.FC = () => {
@@ -12,20 +11,14 @@ export const SelectedWork: React.FC = () => {
     PROJECTS_DATA.find((p) => p.aspectRatio === '16:9') || PROJECTS_DATA[0];
 
   const [featuredLoaded, setFeaturedLoaded] = useState(false);
-  const [featuredCover, setFeaturedCover] = useState<string | null>(() => getStoredThumbnail(featuredProject.id));
+  const [featuredImgSrc, setFeaturedImgSrc] = useState(featuredProject.thumbnail);
 
+  // Clear any stale/corrupted localStorage canvas cache for the featured masterwork
   useEffect(() => {
-    const unsub = subscribeThumbnails((id) => {
-      if (!id || id === featuredProject.id) {
-        const cover = getStoredThumbnail(featuredProject.id);
-        if (cover) {
-          setFeaturedCover(cover);
-          setFeaturedLoaded(true);
-        }
-      }
-    });
-    return unsub;
-  }, [featuredProject.id]);
+    try {
+      localStorage.removeItem('portfolio_thumb_architecture-graduation-2025');
+    } catch {}
+  }, []);
 
   // Extract Projects #2 - #51: 50 Vertical 9:16 Reels
   const reels = PROJECTS_DATA.filter((p) => p.id !== featuredProject.id);
@@ -235,20 +228,25 @@ export const SelectedWork: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Static Thumbnail (Pure <img> Tag - loading="lazy" decoding="async") */}
+                {/* Static Thumbnail (Pure <img> Tag - Direct CDN & Fallback) */}
                 <img
-                  src={featuredCover || featuredProject.thumbnail}
+                  src={featuredImgSrc}
                   alt={featuredProject.title}
-                  loading="lazy"
+                  loading="eager"
                   decoding="async"
                   onLoad={() => setFeaturedLoaded(true)}
-                  className={`w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 pointer-events-none ${
-                    featuredLoaded ? 'opacity-100' : 'opacity-0'
+                  onError={() => {
+                    if (featuredImgSrc.endsWith('.webp')) {
+                      setFeaturedImgSrc(featuredImgSrc.replace('.webp', '.jpg'));
+                    }
+                  }}
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 pointer-events-none ${
+                    featuredLoaded ? 'opacity-100' : 'opacity-95'
                   }`}
                 />
 
-                {/* Cinema Vignette & Gradients */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/30 pointer-events-none" />
+                {/* Cinema Vignette & Gradients (Balanced for crisp visual clarity) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/25 pointer-events-none" />
 
                 {/* Top Badges: STRICTLY "16:9" and "2:45" ONLY */}
                 <div className="absolute top-2.5 sm:top-5 left-2.5 sm:left-5 right-2.5 sm:right-5 flex items-center justify-between z-10 pointer-events-none">
