@@ -22,9 +22,9 @@ export const HomePage: React.FC = () => {
       {/* Main Content Sections (100% Lightweight - Zero Video Decoders on Home) */}
       <main>
         <Hero onExploreWork={scrollToWork} />
+        <About />
         <SelectedWork />
         <Services />
-        <About />
       </main>
 
       {/* Footer & Essential Contact */}
