@@ -69,7 +69,7 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
   return (
     <div className="relative mx-auto w-[250px] sm:w-[280px] md:w-[300px] select-none">
       {/* Outer Glow Halo behind Phone Frame */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 via-amber-500/10 to-transparent rounded-[50px] blur-2xl transform scale-95 -z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-red-600/25 via-red-900/10 to-transparent rounded-[50px] blur-2xl transform scale-95 -z-10 pointer-events-none" />
 
       {/* Realistic Smartphone Chassis */}
       <div className="relative rounded-[46px] p-3 bg-gradient-to-b from-[#2a2a2e] via-[#161619] to-[#0c0c0e] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_0_1px_rgba(255,255,255,0.12)] border border-white/[0.08]">
@@ -132,7 +132,7 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
 
             {/* Center Hover Prompt: Clean 'Watch Full Film' */}
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-20 opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-black group-hover:bg-gradient-to-tr group-hover:from-orange-500 group-hover:to-amber-400 group-hover:text-black flex items-center justify-center shadow-2xl transition-all duration-300 scale-90 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-black group-hover:bg-red-600 group-hover:text-white flex items-center justify-center shadow-2xl transition-all duration-300 scale-90 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(239,68,68,0.6)]">
                 <Play size={22} className="translate-x-0.5 fill-current" />
               </div>
               <span className="mt-3 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[10px] font-mono text-white uppercase tracking-wider shadow-lg">
@@ -143,7 +143,7 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
             {/* Bottom Status Tag */}
             <div className="absolute bottom-3.5 left-3 right-3 z-20 flex items-center justify-between text-[10px] font-mono text-zinc-300 pointer-events-none">
               <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10">
-                <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                 <span>Showreel Preview</span>
               </span>
               <span className="text-[10px] text-zinc-400 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-1">

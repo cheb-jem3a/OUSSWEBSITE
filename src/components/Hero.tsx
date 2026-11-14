@@ -10,9 +10,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork }) => {
   return (
     <section className="relative min-h-[90vh] flex flex-col justify-center pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden">
       {/* Background Cinematic Gradients & Mesh Atmosphere */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-gradient-to-b from-orange-500/[0.05] via-zinc-500/[0.02] to-transparent rounded-full blur-3xl -z-10 pointer-events-none" />
-      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-orange-500/[0.04] rounded-full blur-[140px] -z-10 pointer-events-none" />
-      <div className="absolute bottom-10 left-0 w-[450px] h-[450px] bg-amber-500/[0.03] rounded-full blur-[140px] -z-10 pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-gradient-to-b from-red-600/[0.06] via-zinc-500/[0.02] to-transparent rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-red-600/[0.04] rounded-full blur-[140px] -z-10 pointer-events-none" />
+      <div className="absolute bottom-10 left-0 w-[450px] h-[450px] bg-red-700/[0.03] rounded-full blur-[140px] -z-10 pointer-events-none" />
 
       {/* Subtle Grid Accent */}
       <div
@@ -31,12 +31,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork }) => {
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
             
             {/* Top Pill Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/[0.04] border border-orange-500/20 backdrop-blur-md mb-6 hover:border-orange-500/40 transition-all duration-300">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/[0.05] border border-red-500/20 backdrop-blur-md mb-6 hover:border-red-500/40 transition-all duration-300">
               <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.8)]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600 shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
               </span>
-              <span className="text-[11px] sm:text-xs font-medium tracking-wide text-orange-200/90">
+              <span className="text-[11px] sm:text-xs font-medium tracking-wide text-red-200/90">
                 Filmmaking • Cinematography • High-Impact Reels
               </span>
             </div>

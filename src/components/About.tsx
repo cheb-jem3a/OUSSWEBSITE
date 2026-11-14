@@ -16,7 +16,7 @@ export const About: React.FC = () => {
           
           {/* Left Column: Natural Aspect Ratio Portrait (5 cols) */}
           <div className="lg:col-span-5 flex justify-center items-center">
-            <div className="relative w-full max-w-md rounded-2xl overflow-hidden border border-white/10 group-hover:border-orange-500/30 group-hover:shadow-[0_0_30px_rgba(249,115,22,0.12)] bg-[#121215] shadow-2xl shadow-black/80 group transition-all duration-500">
+            <div className="relative w-full max-w-md rounded-2xl overflow-hidden border border-white/10 group-hover:border-red-500/30 group-hover:shadow-[0_0_30px_rgba(239,68,68,0.15)] bg-[#121215] shadow-2xl shadow-black/80 group transition-all duration-500">
               {/* Creator Photo preserving natural dimensions and aspect ratio */}
               <img
                 src="/about.jpg"
@@ -37,14 +37,14 @@ export const About: React.FC = () => {
                 <span>DIRECTOR STATEMENT</span>
               </div>
 
-              {/* Sleek Minimal Toggle Pill ([FR] / [EN]) with Warm Orange Active Pill */}
-              <div className="inline-flex items-center p-1 rounded-full bg-[#121215] border border-white/[0.1] hover:border-orange-500/30 transition-colors shadow-inner">
+              {/* Sleek Minimal Toggle Pill ([FR] / [EN]) with Crimson Red Active Pill */}
+              <div className="inline-flex items-center p-1 rounded-full bg-[#121215] border border-white/[0.1] hover:border-red-500/30 transition-colors shadow-inner">
                 <button
                   type="button"
                   onClick={() => setLang('FR')}
                   className={`px-3.5 py-1 rounded-full text-xs font-mono font-bold transition-all duration-200 cursor-pointer ${
                     lang === 'FR'
-                      ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-black shadow-[0_0_15px_rgba(249,115,22,0.4)]'
+                      ? 'bg-gradient-to-r from-red-600 to-red-500 text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]'
                       : 'text-zinc-400 hover:text-white'
                   }`}
                   aria-label="Afficher en Français"
@@ -56,7 +56,7 @@ export const About: React.FC = () => {
                   onClick={() => setLang('EN')}
                   className={`px-3.5 py-1 rounded-full text-xs font-mono font-bold transition-all duration-200 cursor-pointer ${
                     lang === 'EN'
-                      ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-black shadow-[0_0_15px_rgba(249,115,22,0.4)]'
+                      ? 'bg-gradient-to-r from-red-600 to-red-500 text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]'
                       : 'text-zinc-400 hover:text-white'
                   }`}
                   aria-label="Switch to English"
@@ -71,11 +71,11 @@ export const About: React.FC = () => {
               <p className="text-lg sm:text-2xl text-zinc-200 font-light leading-relaxed sm:leading-relaxed tracking-tight">
                 {lang === 'FR' ? (
                   <>
-                    Bonjour, je suis <span className="text-white font-medium">Oussama</span>, réalisateur, monteur et directeur créatif. J'aide les marques et les créateurs à se développer sur les réseaux sociaux grâce à des contenus percutants et une cinématographie soignée, adaptée à votre vision et votre budget. Plus de 100 clients, un seul objectif : <span className="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent font-medium">vous faire sortir du lot</span>.
+                    Bonjour, je suis <span className="text-white font-medium">Oussama</span>, réalisateur, monteur et directeur créatif. J'aide les marques et les créateurs à se développer sur les réseaux sociaux grâce à des contenus percutants et une cinématographie soignée, adaptée à votre vision et votre budget. Plus de 100 clients, un seul objectif : <span className="bg-gradient-to-r from-red-500 to-rose-400 bg-clip-text text-transparent font-medium">vous faire sortir du lot</span>.
                   </>
                 ) : (
                   <>
-                    Hi, I'm <span className="text-white font-medium">Oussama</span>, a filmmaker, editor, and creative director. I help brands and creators grow on social media with high-impact visuals and refined visual storytelling tailored to your vision and budget. 100+ clients, one goal: <span className="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent font-medium">make you stand out</span>.
+                    Hi, I'm <span className="text-white font-medium">Oussama</span>, a filmmaker, editor, and creative director. I help brands and creators grow on social media with high-impact visuals and refined visual storytelling tailored to your vision and budget. 100+ clients, one goal: <span className="bg-gradient-to-r from-red-500 to-rose-400 bg-clip-text text-transparent font-medium">make you stand out</span>.
                   </>
                 )}
               </p>

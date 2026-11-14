@@ -151,14 +151,14 @@ export const VideoLightbox: React.FC<VideoLightboxProps> = ({
         <div className="relative flex-1 bg-black flex items-center justify-center min-h-[300px]">
           {criticalError ? (
             <div className="flex flex-col items-center justify-center text-center p-6 text-zinc-300">
-              <AlertTriangle className="text-orange-500 mb-2" size={32} />
+              <AlertTriangle className="text-red-500 mb-2" size={32} />
               <p className="text-sm font-mono mb-3">{criticalError}</p>
               <button
                 onClick={() => {
                   setCriticalError(null);
                   videoRef.current?.load();
                 }}
-                className="px-4 py-2 rounded-full bg-orange-500 text-black font-semibold text-xs cursor-pointer shadow-lg active:scale-95"
+                className="px-4 py-2 rounded-full bg-red-600 text-white font-semibold text-xs cursor-pointer shadow-lg active:scale-95"
               >
                 Retry Playback
               </button>
@@ -205,7 +205,7 @@ export const VideoLightbox: React.FC<VideoLightboxProps> = ({
           {/* Desktop Top Close & Share */}
           <div className="hidden sm:flex items-center justify-between pb-4 border-b border-white/[0.06] mb-5">
             <div className="flex items-center gap-1.5 text-xs font-mono text-zinc-400">
-              <Disc3 size={13} className="text-orange-500 animate-spin" />
+              <Disc3 size={13} className="text-red-500 animate-spin" />
               <span>PROJECT REEL VIEWER</span>
             </div>
             <div className="flex items-center gap-2">
@@ -214,7 +214,7 @@ export const VideoLightbox: React.FC<VideoLightboxProps> = ({
                 className="p-2 rounded-full hover:bg-white/10 text-zinc-400 hover:text-white transition-colors cursor-pointer"
                 title="Share link"
               >
-                {copied ? <Check size={16} className="text-orange-400" /> : <Share2 size={16} />}
+                {copied ? <Check size={16} className="text-red-400" /> : <Share2 size={16} />}
               </button>
               <button
                 onClick={handleClose}
@@ -231,7 +231,7 @@ export const VideoLightbox: React.FC<VideoLightboxProps> = ({
             <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-zinc-900 border border-white/10 text-zinc-300">
               {project.year}
             </span>
-            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-orange-500/10 border border-orange-500/30 text-orange-300">
+            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-red-500/10 border border-red-500/30 text-red-300">
               {project.duration}
             </span>
             <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-white/[0.06] text-zinc-400 uppercase">
@@ -243,7 +243,7 @@ export const VideoLightbox: React.FC<VideoLightboxProps> = ({
             {project.title}
           </h2>
 
-          <span className="text-xs font-mono text-orange-400 uppercase tracking-wider mt-1 block">
+          <span className="text-xs font-mono text-red-400 uppercase tracking-wider mt-1 block">
             {project.client}
           </span>
 
@@ -259,7 +259,7 @@ export const VideoLightbox: React.FC<VideoLightboxProps> = ({
             <Link
               to={`/watch/${project.id}`}
               onClick={handleClose}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.06] hover:bg-orange-500/10 border border-white/10 hover:border-orange-500/40 text-xs font-mono text-zinc-300 hover:text-orange-400 transition-all active:scale-95"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.06] hover:bg-red-500/10 border border-white/10 hover:border-red-500/40 text-xs font-mono text-zinc-300 hover:text-red-400 transition-all active:scale-95"
             >
               <span>Dedicated Page</span>
               <ExternalLink size={12} />

@@ -29,7 +29,7 @@ export const ContactFooter: React.FC = () => {
   return (
     <footer id="contact" className="py-24 sm:py-32 relative border-t border-white/[0.08] bg-[#060608]">
       {/* Background Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-t from-orange-500/[0.04] to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-t from-red-600/[0.05] to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -56,13 +56,13 @@ export const ContactFooter: React.FC = () => {
         <div className="max-w-xl mx-auto flex flex-col gap-4 sm:gap-5">
           
           {/* Direct Email Card with One-Click Copy */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-[#101013] border border-white/[0.08] hover:border-orange-500/30 transition-all duration-300 shadow-2xl">
+          <div className="p-6 sm:p-8 rounded-3xl bg-[#101013] border border-white/[0.08] hover:border-red-500/30 transition-all duration-300 shadow-2xl">
             <div className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3 flex items-center justify-between">
               <span>Direct Email</span>
-              <span className="flex items-center gap-2 text-orange-400 text-[11px] font-mono">
+              <span className="flex items-center gap-2 text-red-400 text-[11px] font-mono">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.8)]" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600 shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
                 </span>
                 Available for projects
               </span>
@@ -75,12 +75,12 @@ export const ContactFooter: React.FC = () => {
             <div className="mt-5 flex items-center gap-3">
               <button
                 onClick={handleCopyEmail}
-                className="px-5 py-2.5 rounded-full bg-white text-black hover:bg-gradient-to-r hover:from-orange-500 hover:to-amber-500 hover:text-black hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] text-xs font-semibold flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer shadow-md"
+                className="px-5 py-2.5 rounded-full bg-white text-black hover:bg-red-600 hover:text-white hover:shadow-[0_0_20px_rgba(239,68,68,0.4)] text-xs font-semibold flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer shadow-md"
               >
                 {copiedEmail ? (
                   <>
-                    <Check size={14} className="text-orange-600" />
-                    <span className="text-orange-600 font-bold">Copied!</span>
+                    <Check size={14} className="text-red-600" />
+                    <span className="text-red-600 font-bold">Copied!</span>
                   </>
                 ) : (
                   <>
@@ -101,7 +101,7 @@ export const ContactFooter: React.FC = () => {
           </div>
 
           {/* Direct Phone & WhatsApp Card */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-[#101013] border border-white/[0.08] hover:border-orange-500/30 transition-all duration-300 shadow-2xl">
+          <div className="p-6 sm:p-8 rounded-3xl bg-[#101013] border border-white/[0.08] hover:border-red-500/30 transition-all duration-300 shadow-2xl">
             <div className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3 flex items-center justify-between">
               <span>Direct Phone & WhatsApp</span>
               <span className="flex items-center gap-1.5 text-zinc-400 text-[11px] font-mono">
@@ -120,12 +120,12 @@ export const ContactFooter: React.FC = () => {
               {/* Copy Number */}
               <button
                 onClick={handleCopyPhone}
-                className="px-5 py-2.5 rounded-full bg-white text-black hover:bg-gradient-to-r hover:from-orange-500 hover:to-amber-500 hover:text-black hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] text-xs font-semibold flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer shadow-md"
+                className="px-5 py-2.5 rounded-full bg-white text-black hover:bg-red-600 hover:text-white hover:shadow-[0_0_20px_rgba(239,68,68,0.4)] text-xs font-semibold flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer shadow-md"
               >
                 {copiedPhone ? (
                   <>
-                    <Check size={14} className="text-orange-600" />
-                    <span className="text-orange-600 font-bold">Copied!</span>
+                    <Check size={14} className="text-red-600" />
+                    <span className="text-red-600 font-bold">Copied!</span>
                   </>
                 ) : (
                   <>

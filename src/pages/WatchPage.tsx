@@ -164,15 +164,15 @@ export const WatchPage: React.FC = () => {
   const isVertical = project.aspectRatio === '9:16';
 
   return (
-    <div className="min-h-screen bg-[#080808] text-white flex flex-col justify-between selection:bg-orange-500 selection:text-black">
+    <div className="min-h-screen bg-[#080808] text-white flex flex-col justify-between selection:bg-red-600 selection:text-white">
       {/* Background Cinematic Atmosphere */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-orange-500/[0.04] via-zinc-500/[0.02] to-transparent rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-red-600/[0.05] via-zinc-500/[0.02] to-transparent rounded-full blur-3xl -z-10 pointer-events-none" />
 
       {/* Top Header Navigation Bar */}
       <header className="sticky top-0 z-30 bg-[#080808]/90 backdrop-blur-md border-b border-white/[0.08] px-4 sm:px-8 py-3.5 flex items-center justify-between">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/10 border border-white/10 hover:border-orange-500/40 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white transition-all shadow-md group active:scale-95 cursor-pointer"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/10 border border-white/10 hover:border-red-500/40 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white transition-all shadow-md group active:scale-95 cursor-pointer"
         >
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
           <span>Back to Portfolio</span>
@@ -184,18 +184,18 @@ export const WatchPage: React.FC = () => {
             onClick={toggleMute}
             className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-mono transition-all cursor-pointer ${
               isMuted
-                ? 'bg-orange-500/10 border-orange-500/30 text-orange-400 hover:bg-orange-500/20'
+                ? 'bg-red-500/10 border-red-500/30 text-red-400 hover:bg-red-500/20'
                 : 'bg-white/[0.05] border-white/10 text-zinc-300 hover:bg-white/10'
             }`}
             title={isMuted ? 'Turn Sound On' : 'Mute Sound'}
             aria-label={isMuted ? 'Turn Sound On' : 'Mute Sound'}
           >
-            {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} className="text-orange-400" />}
+            {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} className="text-red-400" />}
             <span className="hidden xs:inline">{isMuted ? 'Unmute' : 'Audio On'}</span>
           </button>
 
           <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 bg-white/[0.03] border border-white/[0.08] px-3 py-1.5 rounded-full">
-            <Film size={12} className="text-orange-400" />
+            <Film size={12} className="text-red-400" />
             <span>{currentIndex + 1} of {PROJECTS_DATA.length}</span>
           </span>
 
@@ -205,7 +205,7 @@ export const WatchPage: React.FC = () => {
             title="Share project link"
             aria-label="Share project link"
           >
-            {copied ? <Check size={16} className="text-orange-400" /> : <Share2 size={16} />}
+            {copied ? <Check size={16} className="text-red-400" /> : <Share2 size={16} />}
           </button>
         </div>
       </header>
@@ -223,14 +223,14 @@ export const WatchPage: React.FC = () => {
         >
           {criticalError ? (
             <div className="flex flex-col items-center justify-center text-center p-6 text-zinc-300 z-20">
-              <AlertTriangle className="text-orange-500 mb-2" size={32} />
+              <AlertTriangle className="text-red-500 mb-2" size={32} />
               <p className="text-sm font-mono mb-3">{criticalError}</p>
               <button
                 onClick={() => {
                   setCriticalError(null);
                   videoRef.current?.load();
                 }}
-                className="px-4 py-2 rounded-full bg-orange-500 text-black font-semibold text-xs cursor-pointer shadow-lg active:scale-95"
+                className="px-4 py-2 rounded-full bg-red-600 text-white font-semibold text-xs cursor-pointer shadow-lg active:scale-95"
               >
                 Retry Playback
               </button>
@@ -240,7 +240,7 @@ export const WatchPage: React.FC = () => {
               {/* Sleek Buffering & Loading Indicator */}
               {isBuffering && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[2px] pointer-events-none z-10 transition-opacity duration-300">
-                  <div className="w-12 h-12 rounded-full border-2 border-orange-500/20 border-t-orange-500 animate-spin mb-3 shadow-[0_0_20px_rgba(249,115,22,0.4)]" />
+                  <div className="w-12 h-12 rounded-full border-2 border-red-500/20 border-t-red-500 animate-spin mb-3 shadow-[0_0_20px_rgba(239,68,68,0.4)]" />
                   <span className="text-xs font-mono tracking-wider text-zinc-300 uppercase bg-black/75 px-3 py-1 rounded-full border border-white/10 shadow-lg">
                     Loading Reel...
                   </span>
@@ -311,7 +311,7 @@ export const WatchPage: React.FC = () => {
         <div className="w-full max-w-4xl mt-6 p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#101013] border border-white/[0.08] shadow-xl">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-white/[0.08]">
             <div className="flex items-center gap-2 flex-wrap text-xs font-mono">
-              <span className="text-orange-400 uppercase tracking-wider font-semibold">
+              <span className="text-red-400 uppercase tracking-wider font-semibold">
                 {project.client}
               </span>
               <span>•</span>
@@ -325,7 +325,7 @@ export const WatchPage: React.FC = () => {
                 {project.duration}
               </span>
               <span>•</span>
-              <span className="px-2 py-0.5 rounded text-[10px] bg-orange-500/10 border border-orange-500/30 text-orange-300 uppercase">
+              <span className="px-2 py-0.5 rounded text-[10px] bg-red-500/10 border border-red-500/30 text-red-300 uppercase">
                 {project.aspectRatio}
               </span>
             </div>
@@ -333,7 +333,7 @@ export const WatchPage: React.FC = () => {
             <div className="flex items-center gap-2 self-start sm:self-auto">
               <Link
                 to={`/watch/${prevProject.id}`}
-                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/15 border border-white/10 hover:border-orange-500/30 text-xs font-mono text-zinc-300 hover:text-white transition-all cursor-pointer"
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/15 border border-white/10 hover:border-red-500/30 text-xs font-mono text-zinc-300 hover:text-white transition-all cursor-pointer"
                 title={`Previous: ${prevProject.title}`}
               >
                 <ChevronLeft size={14} />
@@ -341,7 +341,7 @@ export const WatchPage: React.FC = () => {
               </Link>
               <Link
                 to={`/watch/${nextProject.id}`}
-                className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-white text-black hover:bg-gradient-to-r hover:from-orange-500 hover:to-amber-500 hover:text-black text-xs font-mono font-semibold transition-all shadow-md cursor-pointer"
+                className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-white text-black hover:bg-red-600 hover:text-white text-xs font-mono font-semibold transition-all shadow-md cursor-pointer"
                 title={`Next: ${nextProject.title}`}
               >
                 <span>Next Project</span>

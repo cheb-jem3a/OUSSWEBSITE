@@ -277,9 +277,9 @@ export const GenerateCoversPage: React.FC = () => {
   const progressPercent = Math.round((extractedCovers.length / total) * 100);
 
   return (
-    <div className="min-h-screen bg-[#080808] text-white selection:bg-orange-500 selection:text-black p-4 sm:p-8">
+    <div className="min-h-screen bg-[#080808] text-white selection:bg-red-600 selection:text-white p-4 sm:p-8">
       {/* Background glow atmosphere */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-orange-500/[0.04] to-transparent rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-red-600/[0.05] to-transparent rounded-full blur-3xl -z-10 pointer-events-none" />
 
       {/* Hidden processing video element */}
       <video
@@ -302,7 +302,7 @@ export const GenerateCoversPage: React.FC = () => {
           </Link>
 
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1 rounded-full text-xs font-mono bg-orange-500/10 border border-orange-500/30 text-orange-400 flex items-center gap-1.5">
+            <span className="px-3 py-1 rounded-full text-xs font-mono bg-red-500/10 border border-red-500/30 text-red-400 flex items-center gap-1.5">
               <Camera size={13} />
               <span>HTML5 Canvas Generator</span>
             </span>
@@ -313,10 +313,10 @@ export const GenerateCoversPage: React.FC = () => {
         <div className="mb-8">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white flex items-center gap-3">
             <span>Browser Video Thumbnail Studio</span>
-            <Sparkles size={24} className="text-orange-400" />
+            <Sparkles size={24} className="text-red-400" />
           </h1>
           <p className="mt-2 text-zinc-400 text-sm sm:text-base max-w-2xl leading-relaxed">
-            Extracts crisp high-definition covers directly from each video at <span className="text-orange-400 font-mono">1.0s</span> using native browser HTML5 Canvas.
+            Extracts crisp high-definition covers directly from each video at <span className="text-red-400 font-mono">1.0s</span> using native browser HTML5 Canvas.
             No external FFmpeg installation is required.
           </p>
         </div>
@@ -329,7 +329,7 @@ export const GenerateCoversPage: React.FC = () => {
               <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider mb-1 flex items-center gap-2">
                 <span>Progress Status</span>
                 {isRunning && (
-                  <span className="text-orange-400 text-[10px]">
+                  <span className="text-red-400 text-[10px]">
                     (Processing #{currentIndex} of {total})
                   </span>
                 )}
@@ -341,7 +341,7 @@ export const GenerateCoversPage: React.FC = () => {
               </div>
               <div className="text-lg font-bold text-white flex items-center gap-2">
                 <span>{extractedCovers.length} of {total} Extracted</span>
-                <span className="text-sm font-mono text-orange-400">({progressPercent}%)</span>
+                <span className="text-sm font-mono text-red-400">({progressPercent}%)</span>
               </div>
             </div>
 
@@ -353,7 +353,7 @@ export const GenerateCoversPage: React.FC = () => {
           {/* Visual Progress Track */}
           <div className="w-full bg-white/[0.08] h-2.5 rounded-full overflow-hidden mb-6">
             <div
-              className="bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 h-full rounded-full transition-all duration-300 shadow-[0_0_12px_rgba(249,115,22,0.6)]"
+              className="bg-gradient-to-r from-red-600 via-rose-500 to-red-600 h-full rounded-full transition-all duration-300 shadow-[0_0_12px_rgba(239,68,68,0.6)]"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
@@ -363,7 +363,7 @@ export const GenerateCoversPage: React.FC = () => {
             {!isRunning ? (
               <button
                 onClick={startGeneration}
-                className="px-6 py-3 rounded-full bg-white text-black font-semibold text-sm hover:bg-gradient-to-r hover:from-orange-500 hover:to-amber-400 hover:text-black transition-all shadow-lg hover:shadow-[0_0_25px_rgba(249,115,22,0.5)] flex items-center gap-2 cursor-pointer active:scale-95"
+                className="px-6 py-3 rounded-full bg-white text-black font-semibold text-sm hover:bg-red-600 hover:text-white transition-all shadow-lg hover:shadow-[0_0_25px_rgba(239,68,68,0.5)] flex items-center gap-2 cursor-pointer active:scale-95"
               >
                 <Play size={16} className="fill-current" />
                 <span>{extractedCovers.length > 0 ? 'Resume / Regenerate All' : 'Start Cover Extraction'}</span>
@@ -372,7 +372,7 @@ export const GenerateCoversPage: React.FC = () => {
               <>
                 <button
                   onClick={handlePauseResume}
-                  className="px-5 py-2.5 rounded-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 text-sm font-medium flex items-center gap-2 transition-all cursor-pointer"
+                  className="px-5 py-2.5 rounded-full bg-red-500/20 hover:bg-red-500/30 border border-red-500/40 text-red-300 text-sm font-medium flex items-center gap-2 transition-all cursor-pointer"
                 >
                   <Pause size={15} />
                   <span>{isPaused ? 'Resume' : 'Pause'}</span>
@@ -413,7 +413,7 @@ export const GenerateCoversPage: React.FC = () => {
           {/* Left Canvas Display */}
           <div className="md:col-span-5 rounded-3xl bg-[#101013] border border-white/[0.08] p-5 flex flex-col items-center justify-center min-h-[380px]">
             <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider mb-3 self-start flex items-center gap-1.5">
-              <Camera size={13} className="text-orange-400" />
+              <Camera size={13} className="text-red-400" />
               <span>Active Canvas Renderer</span>
             </div>
 
@@ -434,7 +434,7 @@ export const GenerateCoversPage: React.FC = () => {
 
             {currentProject && (
               <div className="mt-3 text-center">
-                <span className="text-xs font-mono text-orange-400">{currentProject.client}</span>
+                <span className="text-xs font-mono text-red-400">{currentProject.client}</span>
                 <div className="text-sm font-bold text-white truncate max-w-xs">{currentProject.title}</div>
               </div>
             )}
@@ -444,7 +444,7 @@ export const GenerateCoversPage: React.FC = () => {
           <div className="md:col-span-7 flex flex-col justify-between gap-4">
             <div className="rounded-3xl bg-[#101013] border border-white/[0.08] p-6">
               <h3 className="text-base font-bold text-white mb-2 flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-orange-400" />
+                <CheckCircle2 size={16} className="text-red-400" />
                 <span>Zero-Decoder Performance Guarantee</span>
               </h3>
               <p className="text-xs text-zinc-400 leading-relaxed">
@@ -458,7 +458,7 @@ export const GenerateCoversPage: React.FC = () => {
                 </div>
                 <div className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
                   <span className="text-zinc-500 block">Output Format</span>
-                  <span className="text-orange-400 font-semibold">540×960 WebP</span>
+                  <span className="text-red-400 font-semibold">540×960 WebP</span>
                 </div>
                 <div className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
                   <span className="text-zinc-500 block">Storage Layer</span>
@@ -471,8 +471,8 @@ export const GenerateCoversPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="rounded-3xl bg-gradient-to-r from-orange-500/10 via-amber-500/5 to-transparent border border-orange-500/20 p-6">
-              <h4 className="text-sm font-semibold text-orange-300 mb-1 flex items-center gap-1.5">
+            <div className="rounded-3xl bg-gradient-to-r from-red-600/10 via-red-900/5 to-transparent border border-red-500/20 p-6">
+              <h4 className="text-sm font-semibold text-red-300 mb-1 flex items-center gap-1.5">
                 <Sparkles size={14} />
                 <span>Instant Home Page Sync</span>
               </h4>
@@ -501,7 +501,7 @@ export const GenerateCoversPage: React.FC = () => {
               {extractedCovers.map((cover) => (
                 <div
                   key={cover.projectId}
-                  className="group relative rounded-2xl overflow-hidden bg-[#121215] border border-white/[0.08] hover:border-orange-500/40 transition-all flex flex-col"
+                  className="group relative rounded-2xl overflow-hidden bg-[#121215] border border-white/[0.08] hover:border-red-500/40 transition-all flex flex-col"
                 >
                   <div className="relative aspect-[9/16] bg-black overflow-hidden">
                     <img
@@ -510,7 +510,7 @@ export const GenerateCoversPage: React.FC = () => {
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute top-1.5 right-1.5">
-                      <span className="px-1.5 py-0.5 rounded text-[9px] font-mono bg-black/80 text-orange-400 border border-orange-500/30">
+                      <span className="px-1.5 py-0.5 rounded text-[9px] font-mono bg-black/80 text-red-400 border border-red-500/30">
                         {cover.sizeKb} KB
                       </span>
                     </div>
@@ -525,7 +525,7 @@ export const GenerateCoversPage: React.FC = () => {
                   </div>
 
                   <div className="p-2.5">
-                    <div className="text-[10px] font-mono text-orange-400 truncate">
+                    <div className="text-[10px] font-mono text-red-400 truncate">
                       {cover.projectId}
                     </div>
                     <div className="text-xs font-semibold text-white truncate mt-0.5">

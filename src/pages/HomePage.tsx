@@ -15,7 +15,7 @@ export const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#080808] text-white selection:bg-orange-500 selection:text-black">
+    <div className="min-h-screen bg-[#080808] text-white selection:bg-red-600 selection:text-white">
       {/* Top Navbar */}
       <Navbar />
 

@@ -47,14 +47,14 @@ export const Services: React.FC = () => {
           {CREATOR_PROFILE.services.map((service) => (
             <div
               key={service.id}
-              className="group relative rounded-3xl p-6 sm:p-8 bg-[#101013] border border-white/[0.08] hover:border-orange-500/30 transition-all duration-300 flex flex-col justify-between hover:shadow-[0_15px_40px_rgba(249,115,22,0.08)]"
+              className="group relative rounded-3xl p-6 sm:p-8 bg-[#101013] border border-white/[0.08] hover:border-red-500/30 transition-all duration-300 flex flex-col justify-between hover:shadow-[0_15px_40px_rgba(239,68,68,0.1)]"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-white/[0.05] border border-white/[0.1] group-hover:border-orange-500/40 group-hover:bg-orange-500/10 flex items-center justify-center group-hover:scale-105 transition-all">
+                  <div className="w-12 h-12 rounded-2xl bg-white/[0.05] border border-white/[0.1] group-hover:border-red-500/40 group-hover:bg-red-500/10 flex items-center justify-center group-hover:scale-105 transition-all">
                     {getIcon(service.icon)}
                   </div>
-                  <span className="text-xs font-mono text-zinc-400 group-hover:text-orange-400 transition-colors">
+                  <span className="text-xs font-mono text-zinc-400 group-hover:text-red-400 transition-colors">
                     DISCIPLINE // {service.stepNumber}
                   </span>
                 </div>
@@ -78,7 +78,7 @@ export const Services: React.FC = () => {
                   </span>
                   {service.deliverables.map((item, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-xs text-zinc-300">
-                      <CheckCircle2 size={14} className="text-orange-400 shrink-0" />
+                      <CheckCircle2 size={14} className="text-red-500 shrink-0" />
                       <span>{item}</span>
                     </div>
                   ))}
