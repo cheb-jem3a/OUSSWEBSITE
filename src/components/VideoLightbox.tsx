@@ -183,6 +183,13 @@ export const VideoLightbox: React.FC<VideoLightboxProps> = ({
                 onError={(e) => {
                   const currentTarget = e.currentTarget;
                   const currentSrc = currentTarget.currentSrc || currentTarget.src;
+                  if (currentSrc.includes('supabase.co')) {
+                    const filename = currentSrc.split('/').pop() || '';
+                    currentTarget.src = `https://archive.org/download/oussama-brahami-fast-reels/${filename}`;
+                    currentTarget.load();
+                    currentTarget.play().catch(() => {});
+                    return;
+                  }
                   if (currentSrc.includes('.us.archive.org/')) {
                     currentTarget.src = currentSrc.replace(/https:\/\/[^/]+\/\d+\/items\//, 'https://archive.org/download/');
                     currentTarget.load();
