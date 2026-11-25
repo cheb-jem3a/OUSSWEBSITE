@@ -86,7 +86,7 @@ export const SelectedWork: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/[0.05] border border-red-500/20 text-xs font-mono text-red-300 mb-3">
               <Sparkles size={13} className="text-red-400" />
-              <span>50 VERTICAL COMMERCIAL REELS (9:16)</span>
+              <span>{reels.length} VERTICAL COMMERCIAL REELS (9:16)</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
               Selected Works.
@@ -96,7 +96,7 @@ export const SelectedWork: React.FC = () => {
             </p>
             {/* Subtle Mobile Swipe Hint */}
             <div className="flex sm:hidden items-center gap-1.5 text-[11px] font-mono text-zinc-400 mt-2.5">
-              <span>Swipe horizontally to explore all 50 reels</span>
+              <span>Swipe horizontally to explore all {reels.length} reels</span>
               <span className="text-red-400">→</span>
             </div>
           </div>
@@ -105,7 +105,7 @@ export const SelectedWork: React.FC = () => {
           <div className="flex items-center gap-3 self-start sm:self-auto">
             <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-zinc-300 bg-red-500/[0.05] border border-red-500/20 px-3.5 py-1.5 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
-              <span className="text-red-200/90 font-medium">50 Reels</span>
+              <span className="text-red-200/90 font-medium">{reels.length} Reels</span>
             </div>
 
             {/* Minimalist Left & Right Scroll Buttons */}
