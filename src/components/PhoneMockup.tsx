@@ -11,7 +11,7 @@ interface PhoneMockupProps {
 }
 
 export const PhoneMockup: React.FC<PhoneMockupProps> = ({
-  videoUrl = 'https://smmmtfqfxjhserliagbz.supabase.co/storage/v1/object/public/videos/reel-24.mp4',
+  videoUrl = 'https://pub-acb5a1fa898d49b488183577bb07f629.r2.dev/reel-24.mp4',
   poster = '/thumbnails/eps-land.webp',
   title = 'Commercial Showreel',
   targetId = 'reel-24-eps-land'
@@ -115,7 +115,7 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
               onError={(e) => {
                 const currentTarget = e.currentTarget;
                 const currentSrc = currentTarget.currentSrc || currentTarget.src;
-                if (currentSrc.includes('supabase.co')) {
+                if (currentSrc.includes('r2.dev') || currentSrc.includes('supabase.co')) {
                   const filename = currentSrc.split('/').pop() || '';
                   currentTarget.src = `https://archive.org/download/oussama-brahami-fast-reels/${filename}`;
                   currentTarget.load();

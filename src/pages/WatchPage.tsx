@@ -278,9 +278,9 @@ export const WatchPage: React.FC = () => {
                 onError={(e) => {
                   const currentTarget = e.currentTarget;
                   const currentSrc = currentTarget.currentSrc || currentTarget.src;
-                  // If Supabase stream ever encounters an issue, seamlessly fallback to Archive CDN
-                  if (currentSrc.includes('supabase.co')) {
-                    console.warn('Supabase stream failed, falling back to Archive.org CDN:', currentSrc);
+                  // If Cloudflare R2 or Supabase stream ever encounters an issue, seamlessly fallback to Archive CDN
+                  if (currentSrc.includes('r2.dev') || currentSrc.includes('supabase.co')) {
+                    console.warn('Primary stream failed, falling back to Archive.org CDN:', currentSrc);
                     const filename = currentSrc.split('/').pop() || '';
                     currentTarget.src = `https://archive.org/download/oussama-brahami-fast-reels/${filename}`;
                     currentTarget.load();

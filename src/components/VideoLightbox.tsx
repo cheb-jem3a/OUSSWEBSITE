@@ -183,7 +183,7 @@ export const VideoLightbox: React.FC<VideoLightboxProps> = ({
                 onError={(e) => {
                   const currentTarget = e.currentTarget;
                   const currentSrc = currentTarget.currentSrc || currentTarget.src;
-                  if (currentSrc.includes('supabase.co')) {
+                  if (currentSrc.includes('r2.dev') || currentSrc.includes('supabase.co')) {
                     const filename = currentSrc.split('/').pop() || '';
                     currentTarget.src = `https://archive.org/download/oussama-brahami-fast-reels/${filename}`;
                     currentTarget.load();
