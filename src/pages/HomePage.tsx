@@ -19,11 +19,11 @@ export const HomePage: React.FC = () => {
       {/* Top Navbar */}
       <Navbar />
 
-      {/* Main Content Sections (100% Lightweight - Zero Video Decoders on Home) */}
+      {/* Main Content Sections: About -> Work -> Visual Storytelling (Hero) -> Services -> Contact */}
       <main>
-        <Hero onExploreWork={scrollToWork} />
         <About />
         <SelectedWork />
+        <Hero onExploreWork={scrollToWork} />
         <Services />
       </main>
 

@@ -8,7 +8,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onExploreWork }) => {
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-center pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden">
+    <section id="showcase" className="relative min-h-[80vh] flex flex-col justify-center py-20 sm:py-28 overflow-hidden border-t border-white/[0.08] bg-[#080808]">
       {/* Background Cinematic Gradients & Mesh Atmosphere */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-gradient-to-b from-red-600/[0.06] via-zinc-500/[0.02] to-transparent rounded-full blur-3xl -z-10 pointer-events-none" />
       <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-red-600/[0.04] rounded-full blur-[140px] -z-10 pointer-events-none" />

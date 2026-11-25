@@ -5,9 +5,11 @@ export const About: React.FC = () => {
   const [lang, setLang] = useState<'FR' | 'EN'>('FR');
 
   return (
-    <section id="about" className="py-24 sm:py-32 relative border-t border-white/[0.08] bg-[#070709] overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[150px] pointer-events-none" />
+    <section id="about" className="pt-28 sm:pt-36 pb-20 sm:pb-28 relative bg-[#070709] overflow-hidden">
+      {/* Background Cinematic Gradients & Atmosphere */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-red-600/[0.07] via-zinc-500/[0.02] to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-red-600/[0.04] rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-[450px] h-[450px] bg-red-700/[0.03] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
